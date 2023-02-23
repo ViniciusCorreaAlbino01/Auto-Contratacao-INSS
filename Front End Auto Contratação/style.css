@@ -1,0 +1,264 @@
+html {
+  scroll-behavior: smooth;
+  background-color: rgb(240, 240, 240);
+
+}
+
+#como_autorizar{
+    max-width: 1439px;
+    background-color: rgb(249, 249, 249);
+    margin: 0px auto;
+    justify-content: center;
+    padding: 10px 100px  0px;
+}
+
+.imagens_autorizar{
+    background-color: rgb(249, 249, 249);
+    padding: 0px 200px;
+}
+body {
+    overflow-x:hidden;
+}
+
+p,h1,h2,h3{
+    font-family: "Timeless", Sans-serif;
+    font-weight: 500;
+}
+
+header{
+    margin: -21px -8px 0px -8px;
+    background-image: url(Imagens/Fundo.png);
+    background-repeat: no-repeat;
+    background-size: 100% 120%;
+    
+}
+#logo{
+    margin: 40px 0px 0px 50px;
+    width: 8.7%;
+    display: inline;
+}
+#primeiro_link{
+    margin-left: 38%;
+}
+.links_inicio{
+    margin-right: 9%;
+    display: inline;
+
+}
+
+.links_inicio>span>a{
+    color: white;
+    font-size: 18px;
+    font-family: "Timeless", Sans-serif;
+    text-decoration: none;
+    border-radius: 15px;
+    padding: 7px;
+}
+
+.links_inicio>span>a:hover{
+    background-color: rgba(255, 255, 255, 0.141);
+}
+
+.informacoes{
+    float: right;
+    display: block;
+    position: relative;
+    margin: 10px 200px 10px 0px;
+    text-align: right;
+}
+.informacoes>h2{
+    text-align: center;
+}
+.titulo, .p_inicio{
+    color: #D00909;
+    font-weight: 500;
+}
+.titulo>strong{
+    font-weight: 1500;
+}
+
+form{
+    background-color: #ffffffb0;
+    background-image: url(Imagens/logo_fundo.png);
+    background-size: 100%;
+    background-position: 2%;
+    left: 55%;
+    bottom: 90px;
+    position: relative;
+    display: block;
+    width: 25%;
+    margin: 160px 0px 40px 0px;
+    border-radius: 15px;
+    padding: 10px 10px 20px 10px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.58);
+}
+
+form>header{
+    background-image: linear-gradient(#ffffff00,#ffffff00);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    margin-left: 0px;
+    text-align: center;
+    font-size: 25px;
+    color: #D00909;
+    
+}
+form>input{
+    background-color: #FFFFFF99;
+    display: block;    
+    margin: 0px 0px 0px 30px;
+    width: 80%;
+    height: 25px;
+    padding-left: 1rem;
+    padding-bottom: 0.35rem;
+    padding-top: 0.35rem;
+    border-width: 1px 1px 1px 1px;
+    border-radius: 15px 15px 15px 15px;
+    border-color: rgba(129, 138, 145);
+    font-size: 15px;
+    font-family: "Timeless", Sans-serif;
+    color: #474747;
+    border: 1px solid #818a91;
+}
+form>input::placeholder{
+    font-family: "Timeless", Sans-serif;
+
+}
+form>label{
+    display: block; 
+    margin: 18px 0px 5px 37px;
+}
+.verificacao{
+    width: 15px;
+    height: 11px;
+    display: inline;
+    font-size: 13px;
+    margin: 18px 0px 0px 30px;
+}
+.texto_verificacao{
+    margin: 16px 0px 0px 0px;
+    display: inline;
+    font-size: 17px;
+}
+#texto_verificacao2{
+    margin-left: 42px;
+}
+
+#autorizacao{
+    width: 3%;
+    height: 3%;
+}
+
+#simular{
+    font-size: 19px;
+    font-weight: 800;
+    margin-top: 18px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3px 0px 30px 0px;
+    background-color: #D00909;
+    color: white;
+    width: 32%;
+}
+
+#simular:hover{
+    background-color: #bb0808;
+}
+main>.passo_a_passo>.titulo{
+    text-align: center;
+}
+
+#como_autorizar{
+    font-size: 2em;
+    color: #d00909;
+}
+
+.imagens_autorizar{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 67%;
+    height: 67%;
+}
+
+footer{
+    background-color: #00074a;
+    margin: 40px -9px 0px;
+}
+
+.caixa{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex-wrap: wrap;
+    
+}
+
+#caixa1{
+    align-items: center;
+    padding: 50px 0px 0px 0px;
+    margin: 0px 800px 0px 0px;
+
+}
+
+#caixa2{
+    align-items:center;
+    margin: -119px 0px 0px 800px;
+}
+.elementos_rodape{
+    display: inline-block;
+}
+
+.elementos_rodape>h3{
+    color: white;
+}
+
+#titulo_rodape{
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    font-family: "Timeless", Sans-serif;
+}
+
+#conhecer{
+    font-size: 14px;
+    font-weight: 800;
+    padding: 10px 30px;
+    border-radius: 26px ;
+    background-color: #D00909;
+    color: white;
+    width: 100%;
+    border-color: #00074a00;
+}
+
+#logo_rodape{
+    margin-bottom: 40px;
+    width: 90%;
+    
+}
+
+
+#elementos_rodape_icone{
+    margin-right: 30px;
+}
+
+.icones{
+    margin-right: 34px;
+    width: 25px;
+}
+
+footer>div>p{
+    color: #5c74a5;
+}
+
+.texto_final,#final{
+    font-size: 12px;
+    max-width: 80%;
+    margin: 150px auto 0px;
+}
+
+#final{
+    margin: 40px auto  -10px;
+    padding-bottom: 30px;
+    color: white;
+}
