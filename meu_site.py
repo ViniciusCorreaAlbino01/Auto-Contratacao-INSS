@@ -3,6 +3,7 @@ from flask_wtf import FlaskForm, CSRFProtect
 from wtforms import StringField, TextAreaField, TelField, DecimalField, SelectField, DateField
 from wtforms.validators import DataRequired, Length
 import json
+import os 
 from datetime import datetime
 from Funcoes_Facta import * 
 from funcoes_trello import *
@@ -13,6 +14,8 @@ from funcoes_firebase import *
 app = Flask(__name__)
 WTF_CSRF_ENABLED = False
 app.config['WTF_CSRF_ENABLED'] = False
+
+
 
 
 class ClienteForm(FlaskForm):
@@ -78,8 +81,9 @@ def homepage():
         except:
             return render_template('cpf_invalido.html', form=form)
         try:
-            Cliente_atual.card_lead = criar_card(Cliente_atual.nome,'63c6a9be9468550317b5f2fd',f'CPF: {Cliente_atual.cpf} \n Nome: {Cliente_atual.nome}  \n Data de nascimento: {Cliente_atual.data_nascimento} \n Telefone: {Cliente_atual.telefone}')
-            criar_firebase(Cliente_atual.cpf,{'CPF':Cliente_atual.cpf,'Nome':Cliente_atual.nome,'Telefone':Cliente_atual.telefone,'Data de Nascimento':Cliente_atual.data_nascimento})
+            Cliente_atual.hora =  datetime.now().strftime("%d/%m %H:%M:%S")
+            Cliente_atual.card_lead = criar_card(Cliente_atual.nome,'63c6a9be9468550317b5f2fd',f'CPF: {Cliente_atual.cpf} \n Nome: {Cliente_atual.nome}  \n Data de nascimento: {Cliente_atual.data_nascimento} \n Telefone: {Cliente_atual.telefone}, Hora : {Cliente_atual.hora}')
+            criar_firebase(Cliente_atual.cpf,{'CPF':Cliente_atual.cpf,'Nome':Cliente_atual.nome,'Telefone':Cliente_atual.telefone,'Data de Nascimento':Cliente_atual.data_nascimento,'Hora':Cliente_atual.hora})
         except:
             None
     if Cliente_atual.codigo_tabela != None:
@@ -194,8 +198,8 @@ def cadastrar():
     
     try:
         criar_card(Cliente_atual.nome,'63c53f3550441b0c74663ac4',f'CPF: {Cliente_atual.cpf} \n Nome: {Cliente_atual.nome}  \n Telefone: {Cliente_atual.telefone} \n Data de Nascimento: {Cliente_atual.data_nascimento} \n Sexo: {Cliente_atual.sexo} \n RG: {Cliente_atual.rg} \n Órgão Emissor: {Cliente_atual.orgao_emissor} \n Estado Expedidor: {Cliente_atual.estado_expedidor} \n Data de Emissão: {Cliente_atual.data_expedicao}\n Nome da Mãe: {Cliente_atual.nome_mae}\n Nome do Pai: {Cliente_atual.nome_pai}\n CEP: {Cliente_atual.cep} \n Endereço: {Cliente_atual.endereco} \n Número: {Cliente_atual.num} \n Bairro: {Cliente_atual.bairro} \n Cidade: {Cliente_atual.cidade} \n Estado: {Cliente_atual.estado} \n Banco: {Cliente_atual.banco} \n Agência: {Cliente_atual.agencia} \n Conta: {Cliente_atual.conta} \n Link: {Cliente_atual.link} \n ADE: {Cliente_atual.ade}')
-        alterar_card(Cliente_atual.card_lead,f'CPF: {Cliente_atual.cpf} \n Nome: {Cliente_atual.nome}  \n Telefone: {Cliente_atual.telefone} \n Data de Nascimento: {Cliente_atual.data_nascimento} \n Sexo: {Cliente_atual.sexo} \n RG: {Cliente_atual.rg} \n Órgão Emissor: {Cliente_atual.orgao_emissor} \n Estado Expedidor: {Cliente_atual.estado_expedidor} \n Data de Emissão: {Cliente_atual.data_expedicao}\n Nome da Mãe: {Cliente_atual.nome_mae}\n Nome do Pai: {Cliente_atual.nome_pai}\n CEP: {Cliente_atual.cep} \n Endereço: {Cliente_atual.endereco} \n Número: {Cliente_atual.num} \n Bairro: {Cliente_atual.bairro} \n Cidade: {Cliente_atual.cidade1} \n Estado: {Cliente_atual.estado} \n Banco: {Cliente_atual.banco} \n Agência: {Cliente_atual.agencia} \n Conta: {Cliente_atual.conta} \n Link: {Cliente_atual.link} \n ADE: {Cliente_atual.ade}',Cliente_atual.nome+"✔️ Digitado")
-        alterar_firebase(Cliente_atual.cpf,{'CPF':Cliente_atual.cpf,'Nome':Cliente_atual.nome,'Telefone':Cliente_atual.telefone,'Data de Nascimento':Cliente_atual.data_nascimento,'Sexo':Cliente_atual.sexo,'RG':Cliente_atual.rg,'Órgão Emissor':Cliente_atual.orgao_emissor,'Estado Expedidor':Cliente_atual.estado_expedidor,'Data de Emissão':Cliente_atual.data_expedicao,'Nome da mãe':Cliente_atual.nome_mae,'Nome do Pai':Cliente_atual.nome_pai,'CEP':Cliente_atual.cep,'Endereço':Cliente_atual.endereco,'Número':Cliente_atual.num,'Bairro':Cliente_atual.bairro,'Cidade':Cliente_atual.cidade,'Estado':Cliente_atual.estado,'Banco':Cliente_atual.banco,'Agência':Cliente_atual.agencia,'Conta':Cliente_atual.conta,'Link':Cliente_atual.link,'ADE':Cliente_atual.ade})
+        alterar_card(Cliente_atual.card_lead,f'CPF: {Cliente_atual.cpf} \n Nome: {Cliente_atual.nome}  \n Telefone: {Cliente_atual.telefone} \n Data de Nascimento: {Cliente_atual.data_nascimento} \n Sexo: {Cliente_atual.sexo} \n RG: {Cliente_atual.rg} \n Órgão Emissor: {Cliente_atual.orgao_emissor} \n Estado Expedidor: {Cliente_atual.estado_expedidor} \n Data de Emissão: {Cliente_atual.data_expedicao}\n Nome da Mãe: {Cliente_atual.nome_mae}\n Nome do Pai: {Cliente_atual.nome_pai}\n CEP: {Cliente_atual.cep} \n Endereço: {Cliente_atual.endereco} \n Número: {Cliente_atual.num} \n Bairro: {Cliente_atual.bairro} \n Cidade: {Cliente_atual.cidade1} \n Estado: {Cliente_atual.estado} \n Banco: {Cliente_atual.banco} \n Agência: {Cliente_atual.agencia} \n Conta: {Cliente_atual.conta} \n Link: {Cliente_atual.link} \n ADE: {Cliente_atual.ade} \n Hora: {Cliente_atual.hora}',Cliente_atual.nome+"✔️ Digitado")
+        alterar_firebase(Cliente_atual.cpf,{'CPF':Cliente_atual.cpf,'Nome':Cliente_atual.nome,'Telefone':Cliente_atual.telefone,'Data de Nascimento':Cliente_atual.data_nascimento,'Sexo':Cliente_atual.sexo,'RG':Cliente_atual.rg,'Órgão Emissor':Cliente_atual.orgao_emissor,'Estado Expedidor':Cliente_atual.estado_expedidor,'Data de Emissão':Cliente_atual.data_expedicao,'Nome da mãe':Cliente_atual.nome_mae,'Nome do Pai':Cliente_atual.nome_pai,'CEP':Cliente_atual.cep,'Endereço':Cliente_atual.endereco,'Número':Cliente_atual.num,'Bairro':Cliente_atual.bairro,'Cidade':Cliente_atual.cidade,'Estado':Cliente_atual.estado,'Banco':Cliente_atual.banco,'Agência':Cliente_atual.agencia,'Conta':Cliente_atual.conta,'Link':Cliente_atual.link,'ADE':Cliente_atual.ade, 'Hora':Cliente_atual.hora})
     except:
         None
     return render_template('pag4.html', link = Cliente_atual.link)
@@ -204,7 +208,8 @@ def cadastrar():
 
 #colocar o site no ar
 if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0",port=5000)
+    port = int(os.getenv('PORT'),'5000')
+    app.run(debug=True, host="0.0.0.0",port=port)
 
 
 
